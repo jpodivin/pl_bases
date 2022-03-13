@@ -56,7 +56,9 @@ a_acid_code(glycine, guanine, guanine, Z):-base(Z).
 a_acid_code(phenylalanine, X, X, Z):-th_ur(X), (X=Z; citosine=Z).
 
 /* Leucine */
-a_acid_code(leucine, X, Y, Z):-th_ur(Y), (th_ur(X), (adenin=Z; guanine=Z)); (citosine=X, base(Z)).
+a_acid_code(leucine, X, Y, Z):-th_ur(Y),
+                               (th_ur(X), (adenin=Z; guanine=Z));
+                               (citosine=X, base(Z)).
 
 /* Isoleucine */
 a_acid_code(isoleucine, adenin, W, X):-th_ur(W), (th_ur(X); adenine=X; citosine=X).
