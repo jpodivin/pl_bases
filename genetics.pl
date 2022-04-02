@@ -37,11 +37,13 @@ nucleic_acid(rna, guanine).
 codon(X, Y, Z):-base(X),
                 base(Y),
                 base(Z).
+
+/* Amino Acids */
+
 /* Stop codons */
 stop_codon(X, Y, Z):-codon(X, Y, Z),
                      th_ur(X),
                      ((Y=guanine, Z=adenine); (Y=adenine, (Z=adenine; Z=guanine))).
-/* Amino Acids */
 
 /* Valine */
 a_acid_code(valine, guanine, X, Z):-base(Z),th_ur(X).
@@ -106,6 +108,4 @@ a_acid_code(tryptophan, X, guanine, guanine):-th_ur(X).
 /* Arginine */
 a_acid_code(arginine, citosine, guanine, X):-base(X).
 a_acid_code(arginine, adenine, guanine, X):-adenine=X; guanine=X.
-
-/*Helix def*/
 
